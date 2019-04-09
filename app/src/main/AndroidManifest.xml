@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Homepage"></activity>
+        <activity android:name=".SectionInfoPage"></activity>
+        <activity android:name=".SectionPage" />
+        <activity android:name=".RecommendedCoursesPage" />
+        <activity android:name=".NextSemesterPage" />
+        <activity android:name=".SignUpPage" />
+        <activity android:name=".AddCompleteCoursesPage" />
+        <activity android:name=".CompletedCoursesPage" />
+        <activity
+            android:name=".ProfilePage"
+            android:label="@string/title_activity_profile_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Homepage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
