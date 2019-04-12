@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SectionInfoPage"></activity>
+        <activity android:name=".Item"></activity>
+        <activity android:name=".ExecuteSQL" />
+        <activity android:name=".SectionInfoPage" />
         <activity android:name=".SectionPage" />
         <activity android:name=".RecommendedCoursesPage" />
         <activity android:name=".NextSemesterPage" />
