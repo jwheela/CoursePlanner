@@ -66,16 +66,8 @@ public class SectionPage extends AppCompatActivity {
                 //Saving clicked item into a variable
                 String selectedItem = ((TextView)view).getText().toString();
 
-                //Checking if selected item is in selected list
+                //Will pass page to section info eventually
 
-                //If yes removing from the list(equivalent to unchecking)
-                if(selectedSection.contains(selectedItem)){
-                    selectedSection.remove(selectedItem);
-
-                    //If no adding to the list(equivalent to checking)
-                } else {
-                    selectedSection.add(selectedItem);
-                }
             }
         });
 
