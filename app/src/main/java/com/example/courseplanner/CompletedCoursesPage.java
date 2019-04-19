@@ -1,5 +1,6 @@
 package com.example.courseplanner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,6 +72,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+
                 //Saving clicked item into a variable
                 String selectedItem = ((TextView)view).getText().toString();
 
