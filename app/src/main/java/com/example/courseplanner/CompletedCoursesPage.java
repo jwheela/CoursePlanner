@@ -48,8 +48,8 @@ public class CompletedCoursesPage extends AppCompatActivity {
         sql = "SELECT * FROM Course";
 
         //Execute Query
-        ExecuteSQL getCourses = new ExecuteSQL(sql, 5); //Require 5 columns for data to be successfully pulled from db
-        getCourses.execute();
+            ExecuteSQL getCourses = new ExecuteSQL(sql, 5); //Require 5 columns for data to be successfully pulled from db
+            getCourses.execute();
 
         //Captures database response
         classListObj.addAll(getCourses.getDbResponse());

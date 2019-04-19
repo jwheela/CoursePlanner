@@ -24,7 +24,7 @@ public class ExecuteSQL {
     private int colNum; //specifies how many columns are expected back as result of the query
 
     private String message = "";
-    private String dbRequest = "";
+    private String dbRequest;
 
 
     private Boolean isSuccess = false;
@@ -73,6 +73,7 @@ public class ExecuteSQL {
             if (con == null)
             {
                 message = "Check Your Internet Access!";
+                Log.e("SHIT", "NO CONNECTION");
             }
 
             // Proceed with request if connected
@@ -100,6 +101,9 @@ public class ExecuteSQL {
                 while (rs.next()){
                     if(colNum == 5 ){
                  dbResponse.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+                    }
+                    else{
+                        message = "Could not pull anything";
                     }
                 }
 
@@ -173,7 +177,7 @@ public class ExecuteSQL {
         {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             //your database connection string goes below
-            ConnectionURL = "jdbc:sqlserver://jwheela.database.windows.net:1433;database=prereqdb;user=prereqadmin@jwheela;password=pass123!@#;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+            ConnectionURL = "jdbc:jtds:sqlserver://jwheela.database.windows.net:1433;database=prereqdb;user=prereqadmin@jwheela;password=pass123!@#;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
             connection = DriverManager.getConnection(ConnectionURL);
         }
         catch (SQLException se)
