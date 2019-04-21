@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompletedCoursesPage">
+    tools:context="com.example.courseplanner.CompletedCoursesPage">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">>
+        android:orientation="vertical">
+
         <ListView
             android:id="@+id/classList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" /> />
+            android:layout_height="match_parent">
+
+        </ListView>
+
     </LinearLayout>
 
 

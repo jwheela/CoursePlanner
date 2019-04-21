@@ -177,7 +177,7 @@ public class ExecuteSQL {
         {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             //your database connection string goes below
-            ConnectionURL = "jdbc:jtds:sqlserver://jwheela.database.windows.net:1433;database=prereqdb;user=prereqadmin@jwheela;password=pass123!@#;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+            ConnectionURL = "jdbc:jtds:sqlserver://jwheela.database.windows.net:1433;DatabaseName=prereqdb;user=prereqadmin@jwheela;password=pass123!@#;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
             connection = DriverManager.getConnection(ConnectionURL);
         }
         catch (SQLException se)

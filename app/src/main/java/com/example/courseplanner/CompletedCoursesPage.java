@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
 import java.util.ArrayList;
 
 public class CompletedCoursesPage extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
         classListObj = new ArrayList<Item>(); //Receives the objects from ExecuteSQL
 
         //Start the Array adapter
-        classAdapter = new ArrayAdapter<String>(this, R.layout.activity_completed_courses_page, classList);
+        classAdapter = new ArrayAdapter<String>(this, R.layout.class_list, R.id.classRow, classList);
 
         //Initializing list view and assigning array adapter to it
         classListView = (ListView) findViewById(R.id.classList);

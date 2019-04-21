@@ -22,11 +22,6 @@
         <activity android:name=".SignUpPage" />
         <activity android:name=".AddCompleteCoursesPage" />
         <activity android:name=".CompletedCoursesPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ProfilePage"
@@ -34,7 +29,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Homepage" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
