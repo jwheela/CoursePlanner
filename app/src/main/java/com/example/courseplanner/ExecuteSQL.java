@@ -102,6 +102,9 @@ public class ExecuteSQL {
                     if(colNum == 5 ){
                  dbResponse.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
                     }
+                    else if (colNum == 2){
+                        dbResponse.add(new Item (rs.getString(1), rs.getString(2)));
+                    }
                     else{
                         message = "Could not pull anything";
                     }

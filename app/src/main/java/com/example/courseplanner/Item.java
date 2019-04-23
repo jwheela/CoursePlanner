@@ -16,7 +16,7 @@ public class Item {
     public boolean isTaken = false;
     public Boolean hasPrereq = false;
     public Boolean isPrereqTakehn = false;
-    public String userName;
+    public String email;
     public String passWord;
     public String sectionCRN;
     public String timeStart;
@@ -26,8 +26,8 @@ public class Item {
     public String courseSubject;
 
 
-    public Item(String user, String pass) {
-        userName = user;
+    public Item(String uEmail, String pass) {
+        email = uEmail;
         passWord = pass;
     }
 
