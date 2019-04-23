@@ -9,46 +9,53 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
 public class RecommendedCoursesPage extends AppCompatActivity {
 
-    private ArrayList<String> classList;
-    public ArrayList<String> prereqList;
-    public ArrayList<Item> classListObj;
+    public ArrayList<Item> allClasses;
+    public ArrayList<String> availableClasses;
+    public ArrayList <String> passedClasses;
+    public ListView recommendedView;
+    public ArrayAdapter<String> recommendedCourses;
 
-    private ArrayAdapter<String> classAdapter;
-    private ArrayAdapter<String> prereqAdapter;
-
-    public Button next;
-    public ListView classListView;
     public String sql;
-    public String courseID;
+
+    //function to check if an array contains a specified value
+    public static boolean contains(ArrayList<String> array, String v) {
+
+        boolean result = false;
+
+        //from stack overflow
+        for (String i : array) {
+            if (i == v) {
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommended_courses_page);
 
-        Intent courseToFetch = getIntent();
+        allClasses = new ArrayList<Item>();
+        passedClasses = new ArrayList<String>();
+        availableClasses = new ArrayList<String>();
 
-        courseID = courseToFetch.getStringExtra("Selected_Class"); //Needs to call the correct key
+        recommendedCourses = new ArrayAdapter <String>(this, R.layout.class_list, R.id.classRow, availableClasses);
 
-        //Starts the array lists
-        classList = new ArrayList<String>();
-        prereqList = new ArrayList<String>();
-        classListObj = new ArrayList<Item>(); //Receives the objects from ExecuteSQL
+        recommendedView = findViewById(R.id.RecommendedCourses);
 
-        //Start the Array adapter
-        classAdapter = new ArrayAdapter<String>(this, R.layout.activity_completed_courses_page, classList);
-        prereqAdapter = new ArrayAdapter<String>(this, R.layout.activity_completed_courses_page, prereqList);
 
-        //Initializing list view and assigning array adapter to it
-        classListView = (ListView) findViewById(R.id.classList);
-        classListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        classListView.setAdapter(classAdapter);
+        // get all classes expects an array of all classes with prereq
+        //i.e. a union between the classes and prereq table
+        ExecuteSQL getAllClasses;
 
-        //Populating ListView with all classes
+        //getPassed classes expects an array of passed class ids
+        passedClasses = getIntent().getStringArrayListExtra("Selected_Class");
 
-        //Query to pull all classes form database
         sql = "SELECT * FROM Course";
 
         //Execute Query
@@ -56,10 +63,32 @@ public class RecommendedCoursesPage extends AppCompatActivity {
         getCourses.execute();
 
         //Captures database response
-        classListObj.addAll(getCourses.getDbResponse());
-        //testing
+        allClasses.addAll(getCourses.getDbResponse());
+
+        for (Item i : allClasses) { //for each Course
+
+            if (!contains(passedClasses, i.makeCourseLine())) //check if Course has not been passed
+            {
+                if (i.prereqId != null) { //check if those Courses have a prereq
+
+                    if (contains(passedClasses, i.makeCourseLine())) { //check if prereq is passed
+
+                        //if class not already passed and prereqs passed class is available
+                        availableClasses.add(i.makeCourseLine());
+                    }
+                } else {
+                    //if not already passed and no prereq class is available
+                    availableClasses.add(i.makeCourseLine());
+                }
+            }
+        }
+        recommendedView.setAdapter(recommendedCourses);
+
+        recommendedCourses.notifyDataSetChanged();
+
 
 
 
     }
 }
+
