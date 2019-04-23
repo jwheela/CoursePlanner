@@ -1,5 +1,6 @@
 package com.example.courseplanner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -86,6 +87,27 @@ public class CompletedCoursesPage extends AppCompatActivity {
                     selectedClass.add(selectedItem);
                 }
             }
+        });
+
+
+        //Next button functionality
+        next.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //Creating intent
+                Intent intent = new Intent(getApplicationContext(), RecommendedCoursesPage.class);
+
+                //Attaching selected classes and selected program to be passed on to next activity
+                intent.putExtra("Selected_Class", selectedClass);
+
+
+                //Redirecting to the next activity
+                startActivity(intent);
+
+            }
+
         });
 
     }
