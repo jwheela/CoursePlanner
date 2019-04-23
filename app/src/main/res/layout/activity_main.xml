@@ -13,18 +13,24 @@
 
         <Button
             android:id="@+id/btnComp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="Go to Complete Courses"
+            android:text="Completed Courses"
             tools:layout_editor_absoluteX="102dp"
             tools:layout_editor_absoluteY="297dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Page" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="15dp"
-        android:text="Bee Movie"
+        android:text="Shrek"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
