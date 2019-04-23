@@ -92,7 +92,8 @@ public class CompletedCoursesPage extends AppCompatActivity {
 
 
         //Next button functionality
-        next.setOnClickListener(new View.OnClickListener() {
+        Button btnNext = (Button) findViewById(R.id.btnNext);
+        btnNext.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
