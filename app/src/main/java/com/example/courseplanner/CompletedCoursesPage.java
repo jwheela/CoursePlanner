@@ -90,6 +90,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
         });
 
 
+
         //Next button functionality
         next.setOnClickListener(new View.OnClickListener() {
 
@@ -109,6 +110,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
             }
 
         });
+
 
     }
 }
