@@ -12,7 +12,7 @@ public class Item {
     public String desc;
     public String dept;
     public int PID;
-    public String prereqId;
+    public int prereqId;
     public boolean isTaken = false;
     public Boolean hasPrereq = false;
     public Boolean isPrereqTakehn = false;
@@ -37,6 +37,15 @@ public class Item {
         subject = courseSubject1;
         desc = courseDesc1;
         dept = courseDept1;
+    }
+
+    public Item(int id1, String courseName1, String courseSubject1, String courseDesc1, String courseDept1, int prereqID) {
+        id = id1;
+        cName = courseName1;
+        subject = courseSubject1;
+        desc = courseDesc1;
+        dept = courseDept1;
+        prereqId = prereqID;
     }
 
 
