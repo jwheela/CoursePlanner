@@ -3,6 +3,7 @@ package com.example.courseplanner;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -148,5 +149,13 @@ public class RecommendedCoursesPage extends AppCompatActivity {
 
         recommendedCourses.notifyDataSetChanged();
 
+
+        Button yourButtonReturn = (Button) findViewById(R.id.btnReturnToHomepage);
+        yourButtonReturn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(android.view.View v) {
+                startActivity(new Intent(RecommendedCoursesPage.this, MainActivity.class));
+            }
+        });
     }
 }

@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Please select the courses you have completed:"
+            android:textSize="18sp" />
+
         <ListView
             android:id="@+id/classList"
             android:layout_width="match_parent"

@@ -22,20 +22,15 @@
         </activity>
         <activity android:name=".Item" />
         <activity android:name=".ExecuteSQL" />
-        <activity android:name=".SectionInfoPage" />
-        <activity android:name=".SectionPage" />
         <activity android:name=".RecommendedCoursesPage" />
-        <activity android:name=".NextSemesterPage" />
         <activity android:name=".SignUpPage">
 
         </activity>
-        <activity android:name=".AddCompleteCoursesPage" />
         <activity android:name=".CompletedCoursesPage" />
         <activity
             android:name=".ProfilePage"
             android:label="@string/title_activity_profile_page"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Homepage" />
         <activity android:name=".MainActivity"></activity>
     </application>
 
