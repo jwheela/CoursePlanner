@@ -11,34 +11,75 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/loginEmail"
+        <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Email"
-            android:inputType="textEmailAddress" />
+            android:layout_height="128dp"
+            app:srcCompat="@drawable/osu_logo" />
 
-        <EditText
-            android:id="@+id/loginPassWord"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Password"
-            android:inputType="textPassword" />
+            android:layout_height="128dp"
+            android:background="@drawable/textview_border"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="btnLoginClick"
-            android:text="Login" />
+            <EditText
+                android:id="@+id/loginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress" />
 
-        <Button
-            android:id="@+id/btnToSignUp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+
+            <EditText
+                android:id="@+id/loginPassWord"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="Enter Password"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="btnSignUpClick"
-            android:text="Register Here" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FF5722"
+                android:onClick="btnLoginClick"
+                android:text="Login"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <Button
+                android:id="@+id/btnToSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FF5722"
+                android:onClick="btnSignUpClick"
+                android:text="Register Here"
+                android:textSize="20sp" />
+        </LinearLayout>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

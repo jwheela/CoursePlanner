@@ -20,6 +20,20 @@
             tools:layout_editor_absoluteX="102dp"
             tools:layout_editor_absoluteY="297dp" />
 
+        <Button
+            android:id="@+id/btnComp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recommended Courses"
+            android:onClick="onClick"/>
+
+        <Button
+            android:id="@+id/btnComp3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Page"
+            android:onClick="onClick"/>
+
     </LinearLayout>
 
     <TextView

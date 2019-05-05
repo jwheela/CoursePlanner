@@ -9,28 +9,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-68dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/osu_logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Below is a list of recommended courses:"
-            android:textSize="18sp" />
+            android:layout_height="45dp"
+            android:text="Below are the courses you can take next semester:"
+            android:textSize="17dp" />
 
         <ListView
             android:id="@+id/RecommendedCourses"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="280dp"
+            android:background="@drawable/textview_border">
+
 
         </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:orientation="vertical"></LinearLayout>
 
         <Button
             android:id="@+id/btnReturnToHomepage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Return to Home"
-            android:onClick="yourButtonReturn"/>
+            android:layout_height="45dp"
+            android:background="#FF5722"
+            android:onClick="yourButtonReturn"
+            android:text="Return to the Homepage"
+            android:textSize="18sp" />
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

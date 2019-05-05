@@ -102,7 +102,7 @@ public class RecommendedCoursesPage extends AppCompatActivity {
         availableClasses = new ArrayList<String>();
 
         //adapters for piping to ui
-        recommendedCourses = new ArrayAdapter<String>(this, R.layout.class_list, R.id.classRow, availableClasses);
+        recommendedCourses = new ArrayAdapter<String>(this, R.layout.recommended_row, R.id.recommendRow, availableClasses);
 
 
         recommendedView = findViewById(R.id.RecommendedCourses);

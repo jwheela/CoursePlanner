@@ -2,10 +2,10 @@
 
 
 <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="CheckedTextView"
+    android:id="@+id/recommendRow"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="45dp"
     android:layout_gravity="center_vertical"
-    android:id="@+id/classRow"
+    android:text="CheckedTextView"
     android:textColor="@android:color/black"
     android:textSize="14sp" />
