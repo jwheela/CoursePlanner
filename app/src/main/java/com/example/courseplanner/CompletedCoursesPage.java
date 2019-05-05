@@ -1,17 +1,23 @@
 package com.example.courseplanner;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CompletedCoursesPage extends AppCompatActivity {
 
@@ -24,6 +30,53 @@ public class CompletedCoursesPage extends AppCompatActivity {
     public ListView classListView;
     public String sql;
 
+    public ArrayList<String> getCompletedClassesFromPrefs() {
+
+        //setup shared pref
+        SharedPreferences prefs = getBaseContext().getSharedPreferences("User", 0);
+
+        //grab the string with comma seperated course strings
+        String superString = prefs.getString("CompletedCourse", "");
+
+        //split the superstring on commas and load that into arraylist
+        return new ArrayList<>(Arrays.asList(superString.split(",")));
+    }
+
+    public void setCompletedClassesInPrefs(ArrayList<String> array) {
+
+        //setup editor
+        SharedPreferences prefs = getBaseContext().getSharedPreferences("User", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        //turn arraylist into csv string
+        String output = "";
+        for (String str : array) {
+            output += str + ",";
+        }
+
+        //push csv string to prefs
+        editor.putString("CompletedCourse", output);
+        editor.commit();
+    }
+
+    public void updateChecks(ArrayList<String> classes, ListView listView) {
+
+        //get children of list view
+        int children = listView.getChildCount();
+        Log.e(String.valueOf(children), "updateChecks got called!");
+
+        //for each child check if it is in completed classes
+        for(int i = 0; i < children; i++) {
+
+            View v = listView.getChildAt(i);
+
+            //if the child is completed check its check box
+            if(classes.contains(((TextView)v).getText().toString())){
+                ((CheckedTextView)v).setChecked(true);
+            }
+        }
+    }
+
 
 
     @Override
@@ -33,7 +86,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
 
         //Starts the array lists
         classList = new ArrayList<String>();
-        selectedClass = new ArrayList<String>();
+        selectedClass = getCompletedClassesFromPrefs();
         classListObj = new ArrayList<Item>(); //Receives the objects from ExecuteSQL
 
         //Start the Array adapter
@@ -63,6 +116,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
 
         //Notifies adapter of any changes
         classAdapter.notifyDataSetChanged();
+        updateChecks(selectedClass, classListView);
 
 
         //Capturing Selected Courses
@@ -97,6 +151,7 @@ public class CompletedCoursesPage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                setCompletedClassesInPrefs(selectedClass);
 
                 //Creating intent
                 Intent intent = new Intent(getApplicationContext(), RecommendedCoursesPage.class);
