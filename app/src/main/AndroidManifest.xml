@@ -13,18 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfilePage"></activity>
-        <activity android:name=".Login">
+        <activity
+            android:name=".Splash"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ProfilePage" />
+        <activity android:name=".Login" />
         <activity android:name=".Item" />
         <activity android:name=".ExecuteSQL" />
         <activity android:name=".RecommendedCoursesPage" />
-        <activity android:name=".SignUpPage"></activity>
+        <activity android:name=".SignUpPage" />
         <activity android:name=".CompletedCoursesPage" />
         <activity android:name=".MainActivity" />
     </application>

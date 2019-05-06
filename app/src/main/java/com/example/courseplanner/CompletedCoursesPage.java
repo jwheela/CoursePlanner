@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -59,20 +60,21 @@ public class CompletedCoursesPage extends AppCompatActivity {
         editor.commit();
     }
 
-    public void updateChecks(ArrayList<String> classes, ListView listView) {
+    public void updateChecks(ArrayList<String> classes, ArrayAdapter<String> listView, ListView ls) {
 
         //get children of list view
-        int children = listView.getChildCount();
+        int children = listView.getCount();
         Log.e(String.valueOf(children), "updateChecks got called!");
 
         //for each child check if it is in completed classes
         for(int i = 0; i < children; i++) {
 
-            View v = listView.getChildAt(i);
+            View v = listView.getView(i,null, ls);
+            Log.e(((TextView)v).getText().toString(), String.valueOf(((CheckedTextView)v).isChecked()));
 
             //if the child is completed check its check box
             if(classes.contains(((TextView)v).getText().toString())){
-                ((CheckedTextView)v).setChecked(true);
+                ls.setItemChecked(i, true);
             }
         }
     }
@@ -115,9 +117,12 @@ public class CompletedCoursesPage extends AppCompatActivity {
         }
 
         //Notifies adapter of any changes
-        classAdapter.notifyDataSetChanged();
-        updateChecks(selectedClass, classListView);
 
+        classAdapter.notifyDataSetChanged();
+        updateChecks(selectedClass, classAdapter, classListView);
+
+
+        classListView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
         //Capturing Selected Courses
 
@@ -129,6 +134,8 @@ public class CompletedCoursesPage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 //Saving clicked item into a variable
                 String selectedItem = ((TextView)view).getText().toString();
+
+                Log.e("Item Checked", String.valueOf(id) + " " + String.valueOf(((CheckedTextView)view).isChecked()));
 
                 //Checking if selected item is in selected list
 

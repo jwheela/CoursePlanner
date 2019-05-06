@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
+
+
+
     //Declarations:
     ArrayList<Item> userList;
     String sql;

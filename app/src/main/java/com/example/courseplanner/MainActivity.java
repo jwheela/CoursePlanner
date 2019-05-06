@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(android.view.View v) {
                 startActivity(new Intent(MainActivity.this, CompletedCoursesPage.class));
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Redirecting to the next activity
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
             }
         });
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(android.view.View v) {
                 startActivity(new Intent(MainActivity.this, ProfilePage.class));
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
 

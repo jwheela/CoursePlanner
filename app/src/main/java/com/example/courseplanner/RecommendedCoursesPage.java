@@ -155,6 +155,7 @@ public class RecommendedCoursesPage extends AppCompatActivity {
 
             public void onClick(android.view.View v) {
                 startActivity(new Intent(RecommendedCoursesPage.this, MainActivity.class));
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
     }
