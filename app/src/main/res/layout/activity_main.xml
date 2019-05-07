@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="237dp"
             app:srcCompat="@drawable/osu_logo" />
 
         <Button
@@ -23,7 +23,7 @@
             android:layout_height="40dp"
             android:background="#FF5722"
             android:onClick="onClick"
-            android:text="Get Started"
+            android:text="Completed Courses"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="102dp"
             tools:layout_editor_absoluteY="297dp" />
@@ -35,9 +35,18 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnComp2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FF5722"
+            android:onClick="onClick"
+            android:text="Recommended Courses"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="146dp"
+            android:layout_height="35dp"
             android:orientation="vertical"></LinearLayout>
 
     </LinearLayout>

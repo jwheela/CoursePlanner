@@ -46,7 +46,7 @@
             android:layout_height="45dp"
             android:background="#FF5722"
             android:onClick="yourButtonReturn"
-            android:text="Update your progress"
+            android:text="return to homepage"
             android:textSize="18sp" />
 
     </LinearLayout>
