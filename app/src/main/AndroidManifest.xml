@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfilePage" />
         <activity android:name=".Login" />
         <activity android:name=".Item" />
         <activity android:name=".ExecuteSQL" />
