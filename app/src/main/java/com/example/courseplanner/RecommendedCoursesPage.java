@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.util.Log;
+import android.content.SharedPreferences;
+import java.util.Arrays;
 
 import java.util.ArrayList;
 
@@ -15,6 +17,7 @@ import static java.lang.Integer.parseInt;
 
 
 public class RecommendedCoursesPage extends AppCompatActivity {
+
 
     public ArrayList<Item> allClasses;
     public ArrayList<String> availableClasses;
@@ -24,6 +27,22 @@ public class RecommendedCoursesPage extends AppCompatActivity {
     public ArrayAdapter<String> prereqAdapter;
 
     public String sql;
+
+
+
+    public ArrayList<String> getCompletedClassesFromPrefs() {
+
+        //setup shared pref
+        SharedPreferences prefs = getBaseContext().getSharedPreferences("User", 0);
+
+        //grab the string with comma seperated course strings
+        String superString = prefs.getString("CompletedCourse", "");
+
+        //split the superstring on commas and load that into arraylist
+        return new ArrayList<>(Arrays.asList(superString.split(",")));
+    }
+
+
 
     //function to check if an array contains a specified value
     public static boolean contains(ArrayList<String> array, String v) {
@@ -112,6 +131,8 @@ public class RecommendedCoursesPage extends AppCompatActivity {
         recommendedView.setAdapter(recommendedCourses);
 
 
+
+
         // get all classes expects an array of all classes with prereq
         //i.e. a union between the classes and prereq table
         ExecuteSQL getAllClasses;
@@ -127,7 +148,7 @@ public class RecommendedCoursesPage extends AppCompatActivity {
 
 
         //get passed classes from intent
-        passedClasses = getIntent().getStringArrayListExtra("Selected_Class");
+        passedClasses = getCompletedClassesFromPrefs();
 
         for(String i : passedClasses) {
             Log.e("passed class: ", i);

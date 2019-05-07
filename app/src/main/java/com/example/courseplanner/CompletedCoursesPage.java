@@ -127,6 +127,9 @@ public class CompletedCoursesPage extends AppCompatActivity {
         //Capturing Selected Courses
 
 
+
+
+
         //Onclick listener for each individual line in courseList
         classListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
